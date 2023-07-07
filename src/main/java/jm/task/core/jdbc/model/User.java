@@ -1,29 +1,32 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Table
+import javax.persistence.*;
+//@Table -указывает на таблицу в бд, @Column - Ќа столбы, относ€щиес€ к данной переменной
+//аннотаци€ @Id - особенное, дл€ ID всегда указываем отдельную аннотацию
+//    @GeneratedValue - указание стратегии с помощью которой генерируютс€ значени€ дл€ ID
+// IDENTITY - хибернейт не думает о создании ID , все делаетс€ на стороне постгресса
+@Entity
+@Table(name = "users")
 public class User { // ¬се пол€ должны быть private
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
 
-    @Column
+    @Column(name = "lastName")
     private String lastName;
 
-    @Column
+    @Column(name = "age")
     private Byte age;
 
-    public User() {
-
+    public User() { //дл€ @Entity - об€зательно нужен пустой конструктор
     }
 
-    public User(String name, String lastName, Byte age) {
+    public User(String name, String lastName, Byte age) {  //id - считаетс€ на стороне постгреса
         this.name = name;
         this.lastName = lastName;
         this.age = age;

@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/webapp</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Hiberante_demo_db@localhost" uuid="b156eb87-b97d-4eaf-b375-f0f8eb7c7da8">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/Hiberante_demo_db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

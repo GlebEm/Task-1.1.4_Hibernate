@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TaskJDBC" />
+        <module name="Task-1_2" />
+        <module name="HIBER" />
       </profile>
     </annotationProcessing>
   </component>
