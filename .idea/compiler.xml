@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Task-1_2" />
         <module name="HIBER" />
+        <module name="TaskJDBC" />
       </profile>
     </annotationProcessing>
   </component>

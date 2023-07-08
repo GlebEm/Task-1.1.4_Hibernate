@@ -8,16 +8,14 @@ import org.hibernate.SessionFactory;
 
 import java.util.List;
 
-public class UserDaoHibernateImpl implements UserDao { // Классы dao/service должны реализовывать соответствующие интерфейсы
+public class UserDaoHibernateImpl implements UserDao {
     public UserDaoHibernateImpl() {
 
     }
-    //NativeQuery - работа как с SQL таблицей
-    //createQuery - как с классом (сущности)
-      public SessionFactory sessionFactory = Util.getSessionFactory(); //прокинули сессию
 
-    @Override// Методы создания и удаления таблицы пользователей в классе UserHibernateDaoImpl
-    // должны быть реализованы с помощью SQL.
+      public SessionFactory sessionFactory = Util.getSessionFactory();
+
+    @Override
     public void createUsersTable() {
         try {
             Session session = sessionFactory.getCurrentSession();
@@ -36,13 +34,12 @@ public class UserDaoHibernateImpl implements UserDao { // Классы dao/service дол
         }
     }
 
-    @Override//// Методы создания и удаления таблицы пользователей в классе UserHibernateDaoImpl
-    // должны быть реализованы с помощью SQL.
+    @Override
     public void dropUsersTable() {
         try  {
             Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
-            session.createNativeQuery("DROP TABLE IF EXISTS users").executeUpdate(); //тут таблица
+            session.createNativeQuery("DROP TABLE IF EXISTS users").executeUpdate();
             session.getTransaction().commit();
             System.out.println("Таблица удалена");
         } catch (HibernateException e) {
@@ -87,7 +84,7 @@ public class UserDaoHibernateImpl implements UserDao { // Классы dao/service дол
             Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
-            List users = session.createQuery("FROM User").getResultList(); //тут класс
+            List users = session.createQuery("FROM User").getResultList();
 
             session.getTransaction().commit();
 
@@ -103,10 +100,8 @@ public class UserDaoHibernateImpl implements UserDao { // Классы dao/service дол
             Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
-            session.createQuery("DELETE FROM User ").executeUpdate(); //тут класс
-//            for (User u : users) {
-//                session.delete(u);
-//            }
+            session.createQuery("DELETE FROM User ").executeUpdate();
+
             session.getTransaction().commit();
         } catch (HibernateException e) {
             throw new RuntimeException(e);

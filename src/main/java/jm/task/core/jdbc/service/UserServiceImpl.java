@@ -7,31 +7,31 @@ import jm.task.core.jdbc.model.User;
 
 import java.util.List;
 
-public class UserServiceImpl implements UserService { //  лассы dao/service должны реализовывать соответствующие интерфейсы
-    UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(); //создал UserDao, чтобы переиспользовать его методы
+public class UserServiceImpl implements UserService {
+    UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
 
 
-    // service переиспользует методы dao
+
     public void createUsersTable() {
-        userDaoHibernate.createUsersTable(); //service переиспользует методы dao
+        userDaoHibernate.createUsersTable();
     }
 
     public void dropUsersTable() {
-        userDaoHibernate.dropUsersTable();  //service переиспользует методы dao
+        userDaoHibernate.dropUsersTable();
 
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        //ѕосле каждого добавлени€ должен быть вывод в консоль ( User с именем Ц name добавлен в базу данных )
-        userDaoHibernate.saveUser(name, lastName, age); // service переиспользует методы dao
+
+        userDaoHibernate.saveUser(name, lastName, age);
         System.out.println("User с именем Ц " + name + " добавлен в базу данных ");
     }
 
     public void removeUserById(long id) {
-        userDaoHibernate.removeUserById(id);  //service переиспользует методы dao
+        userDaoHibernate.removeUserById(id);
     }
 
-    public List<User> getAllUsers() {  //List<User> getAllUsers();
+    public List<User> getAllUsers() {
         List<User> users = userDaoHibernate.getAllUsers();
         for (User user : users) {
             System.out.println(user);
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService { //  лассы dao/service долж
     }
 
 
-    public void cleanUsersTable() {  // service переиспользует методы dao
+    public void cleanUsersTable() {
         userDaoHibernate.cleanUsersTable();
     }
 }

@@ -1,13 +1,10 @@
 package jm.task.core.jdbc.model;
 
 import javax.persistence.*;
-//@Table -указывает на таблицу в бд, @Column - Ќа столбы, относ€щиес€ к данной переменной
-//аннотаци€ @Id - особенное, дл€ ID всегда указываем отдельную аннотацию
-//    @GeneratedValue - указание стратегии с помощью которой генерируютс€ значени€ дл€ ID
-// IDENTITY - хибернейт не думает о создании ID , все делаетс€ на стороне постгресса
+
 @Entity
 @Table(name = "users")
-public class User { // ¬се пол€ должны быть private
+public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +20,10 @@ public class User { // ¬се пол€ должны быть private
     @Column(name = "age")
     private Byte age;
 
-    public User() { //дл€ @Entity - об€зательно нужен пустой конструктор
+    public User() {
     }
 
-    public User(String name, String lastName, Byte age) {  //id - считаетс€ на стороне постгреса
+    public User(String name, String lastName, Byte age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -64,8 +61,8 @@ public class User { // ¬се пол€ должны быть private
         this.age = age;
     }
 
-    @Override /// ѕолучение всех User из базы и вывод в консоль ( должен быть переопределен toString в классе User)
-    public String toString() { //через гетеры
+    @Override
+    public String toString() {
         return "User{" +
                 "id=" + getId() +
                 ", name='" + getName() + '\'' +
